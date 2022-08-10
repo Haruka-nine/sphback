@@ -115,7 +115,7 @@ export default {
           //按钮会有一个loading效果
           this.loading = true
           //派发一个action：user/login,带着用户名和密码的载荷
-          console.log(111)
+          // console.log(111)
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             // console.log(222)
             this.$router.push({ path: this.redirect || '/' })
