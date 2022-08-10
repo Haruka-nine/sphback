@@ -37,11 +37,15 @@ export default {
   padding: 10px 0;
 }
 .card-charts{
+  display: flex;
+  align-items: center;
   height: 50px;
+  font-size: 15px;
 }
 .card-footer{
   border-top:1px solid #eee;
   padding-top: 10px;
+  font-size: 15px;
 }
 
 </style>
