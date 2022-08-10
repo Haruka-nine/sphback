@@ -54,10 +54,8 @@ Vue.use(VueLazyload, {
 //按钮组件
 import HitButton from '@/components/HitButton/HitButton'
 Vue.component(HitButton.name,HitButton)
-if (process.env.NODE_ENV === 'development') {
   const { mockXHR } = require('../mock')
   mockXHR()
-}
 new Vue({
   el: '#app',
   router,
