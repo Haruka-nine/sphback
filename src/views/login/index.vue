@@ -117,11 +117,11 @@ export default {
           //派发一个action：user/login,带着用户名和密码的载荷
           console.log(111)
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            console.log(222)
+            // console.log(222)
             this.$router.push({ path: this.redirect || '/' })
-            console.log(333)
+            // console.log(333)
             this.loading = false
-            console.log(444)
+            // console.log(444)
           }).catch(() => {
             this.loading = false
           })
