@@ -44,7 +44,7 @@ service.interceptors.response.use(
    * You can also judge the status by HTTP Status Code
    */
   response => {
-    // console.log(response)
+    console.log(response)
     const res = response.data
 
     //服务器响应失败在干什么
