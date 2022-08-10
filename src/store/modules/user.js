@@ -29,7 +29,7 @@ const mutations = {
 
 const actions = {
   // user login
-  async login({ commit }, userInfo) {
+  /* async  */login({ commit }, userInfo) {
     const { username, password } = userInfo;
     // let result = await login({ username: username.trim(), password: password });
     // if (result.code===20000){
