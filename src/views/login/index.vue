@@ -1,9 +1,10 @@
 <template>
   <div class="login-container">
+    <!--el-form组件：elementUi插件里面的一个组件，经常展示表单元素， model:用于收集表单数据 rules：表单验证规则-->
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">登陆</h3>
       </div>
 
       <el-form-item prop="username">
@@ -58,6 +59,7 @@ import { validUsername } from '@/utils/validate'
 export default {
   name: 'Login',
   data() {
+    //先不用在意:这里在进行表单验证，验证用户名和密码操作
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
         callback(new Error('Please enter the correct user name'))
@@ -106,9 +108,13 @@ export default {
       })
     },
     handleLogin() {
+      //验证表单元素（用户名和密码）是否符合规则
       this.$refs.loginForm.validate(valid => {
+        //如果符合规则
         if (valid) {
+          //按钮会有一个loading效果
           this.loading = true
+          //派发一个action：user/login,带着用户名和密码的载荷
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
@@ -180,7 +186,8 @@ $light_gray:#eee;
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  background:url(~@/assets/cg_ao06_0102.png);
+  background-size: 100% 100%;
   overflow: hidden;
 
   .login-form {

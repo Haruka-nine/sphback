@@ -34,7 +34,30 @@ Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-
+//引入相关api请求接口
+import API from '@/api'
+Vue.prototype.$API = API
+//注册全局组件
+//三级联动组件
+import CategorySelect from '@/components/CategorySelect/CategorySelect'
+Vue.component(CategorySelect.name,CategorySelect)
+//引入图片懒加载组件
+import VueLazyload from 'vue-lazyload'
+const loadimage = require('./assets/VFBcover.png')
+const errorimage = require('./assets/large_ev504f.png')
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: errorimage,
+  loading: loadimage,
+  attempt: 1
+})
+//按钮组件
+import HitButton from '@/components/HitButton/HitButton'
+Vue.component(HitButton.name,HitButton)
+if (process.env.NODE_ENV === 'development') {
+  const { mockXHR } = require('../mock')
+  mockXHR()
+}
 new Vue({
   el: '#app',
   router,
