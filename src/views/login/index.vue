@@ -112,13 +112,16 @@ export default {
       this.$refs.loginForm.validate(valid => {
         //如果符合规则
         if (valid) {
-          console.log(111)
           //按钮会有一个loading效果
           this.loading = true
           //派发一个action：user/login,带着用户名和密码的载荷
+          console.log(111)
           this.$store.dispatch('user/login', this.loginForm).then(() => {
+            console.log(222)
             this.$router.push({ path: this.redirect || '/' })
+            console.log(333)
             this.loading = false
+            console.log(444)
           }).catch(() => {
             this.loading = false
           })
